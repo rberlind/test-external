@@ -16,6 +16,5 @@ case $CODE in
         BALANCE=0
         ;;
 esac
-export BALANCE
 
 jq -n --arg the_balance "$BALANCE" '{"balance":$the_balance}'

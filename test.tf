@@ -8,7 +8,7 @@ variable "code" {
 
 resource "null_resource" "install_jq" {
    provisioner "local-exec" {
-      command = "sudo apt-get -y install jq"
+      command = "sudo apt-get -y -q install jq"
    }
 }
 
