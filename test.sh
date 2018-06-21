@@ -18,6 +18,4 @@ case $CODE in
         ;;
 esac
 
-#BALANCE="452"
-
 jq -n --arg balance "$BALANCE" '{"balance":$balance}'
