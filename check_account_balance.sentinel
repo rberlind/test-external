@@ -1,15 +1,12 @@
 import "tfplan"
 
 # Get instances of  from root module
-check_account_balance = tfplan.state.resources.external
-print( check_account_balance )
+check_account_balance = tfplan.state.resources.external.check_balance
 
 # Rule to validate that account has balance > 50
 balance_test = rule {
-  all check_account_balance as _, instances {
-    all instances as _, r {
+  all check_account_balance as _, r {
       print( r.attr.result.balance ) and (int(r.attr.result.balance) else 0) > 50
-    }
   }
 }
 

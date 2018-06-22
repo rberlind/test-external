@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 0.11.7"
 }
 
-variable "code" {
+variable "account_code" {
    description = "code of cloud account: can be 1 or 2"
 }
 
@@ -15,7 +15,7 @@ resource "null_resource" "fake" {
 }
 
 data "external" "check_balance" {
-  program = ["./test.sh", "${var.code}"]
+  program = ["./test.sh", "${var.account_code}"]
 }
 
 output "balance" {
