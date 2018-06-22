@@ -6,6 +6,14 @@ variable "code" {
    description = "code of cloud account: can be 1 or 2"
 }
 
+
+# Add fake resource to make sure that TFE runs this each time
+resource "null_resource" "fake" {
+   triggers {
+      uuid = "${uuid()}"
+   }
+}
+
 data "external" "test" {
   program = ["./test.sh", "${var.code}"]
 }
