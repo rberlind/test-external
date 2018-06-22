@@ -14,12 +14,12 @@ resource "null_resource" "fake" {
    }
 }
 
-data "external" "test" {
+data "external" "check_balance" {
   program = ["./test.sh", "${var.code}"]
 }
 
 output "balance" {
-  value = "${data.external.test.result["balance"]}"
+  value = "${data.external.check_balance.result["balance"]}"
 }
 
 
