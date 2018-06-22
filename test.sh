@@ -2,8 +2,7 @@
 
 #set -e
 
-# Extract code argument from the query map
-eval "$(jq -r '@sh "export CODE=\(.code)"')"
+CODE=$1
 
 case $CODE in
      1)
@@ -17,4 +16,4 @@ case $CODE in
         ;;
 esac
 
-jq -n --arg the_balance "$BALANCE" '{"balance":$the_balance}'
+echo "{ \"balance\": \"$BALANCE\" }"
