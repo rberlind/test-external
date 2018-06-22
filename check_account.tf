@@ -15,7 +15,7 @@ resource "null_resource" "fake" {
 }
 
 data "external" "check_balance" {
-  program = ["./test.sh", "${var.account_code}"]
+  program = ["./check_account.sh", "${var.account_code}"]
 }
 
 output "balance" {
