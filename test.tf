@@ -23,7 +23,7 @@ data "external" "test" {
 }
 
 output "balance" {
-  value = "${data.external.test.result}"
+  value = "${data.external.test.result["balance"]}"
 }
 
 
